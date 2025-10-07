@@ -2,12 +2,18 @@
 #include <Windows.h> //- Для кириллицы
 using namespace std;
 
-class Figure
+class Figure //-Базовый класс;
 {
 public:
-  Figure(int signum)
+  Figure(string name = "Фигура", int signum = 0)
   {
+    this->name = name;
     this->sides_count = signum;
+  };
+
+  string getName()
+  {
+    return this->name;
   };
 
   int get_sides_count()
@@ -16,33 +22,34 @@ public:
   };
 
 private:
+  string name;
   int sides_count;
 };
 
 class Triangle : public Figure
 {
 public:
-  Triangle(int m) : Figure(m) {};
+  Triangle() : Figure("Треугольник", 3) {};
 };
 
 class Quadrangle : public Figure
 {
 public:
-  Quadrangle(int m) : Figure(m) {};
+  Quadrangle() : Figure("Четырёхугольник", 4) {};
 };
 
 int main()
 {
   SetConsoleOutputCP(CP_UTF8);
 
-  Figure fg(0);
-  Triangle tg(3);
-  Quadrangle qg(4);
+  Figure fg;
+  Triangle tg;
+  Quadrangle qg;
 
   cout << "Количество сторон:\n";
-  cout << "Фигура: " << fg.get_sides_count() << "\n";
-  cout << "Треугольник: " << tg.get_sides_count() << "\n";
-  cout << "Четырёхугольник: " << qg.get_sides_count() << "\n";
+  cout << fg.getName() << ": " << fg.get_sides_count() << "\n";
+  cout << tg.getName() << ": " << tg.get_sides_count() << "\n";
+  cout << qg.getName() << ": " << qg.get_sides_count() << "\n";
 
   return 0;
 }
