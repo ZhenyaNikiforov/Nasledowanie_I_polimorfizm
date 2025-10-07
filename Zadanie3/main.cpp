@@ -77,7 +77,7 @@ public:
 
   bool check() override //-Проверяем правильность прямоугольного треугольника;
   {
-    if ((this->A + this->B + this->C == 180) && (this->sides == 3) && (this->C == 90))
+    if (Triangle::check() && (this->C == 90))
     {
       return true;
     };
@@ -91,7 +91,7 @@ public:
   using Triangle::Triangle;
   bool check() override //-Проверяем правильность равнобедренного треугольника;
   {
-    if ((this->A + this->B + this->C == 180) && (this->sides == 3) && (this->A == this->C) && (this->a == this->c))
+    if (Triangle::check() && (this->A == this->C) && (this->a == this->c))
     {
       return true;
     };
@@ -108,7 +108,7 @@ public:
     bool parityABC = (this->A == this->B) && (this->B == this->C) && (this->A == 60);
     bool parityabc = (this->a == this->b) && (this->b == this->c);
 
-    if ((this->A + this->B + this->C == 180) && (this->sides == 3) && parityABC && parityabc)
+    if (Triangle::check() && parityABC && parityabc)
     {
       return true;
     };
@@ -155,7 +155,7 @@ public:
   {
     bool parityABCD = (this->A == this->B) && (this->B == this->C) && (this->C == this->D);
     bool parityabcd = (this->a == this->c) && (this->b == this->d);
-    if ((this->A + this->B + this->C + this->D == 360) && (this->sides == 4) && parityABCD && parityabcd)
+    if (Quadrangle::check() && parityABCD && parityabcd)
     {
       return true;
     };
@@ -171,7 +171,7 @@ public:
   {
     bool parityABCD = (this->A == this->B) && (this->B == this->C) && (this->C == this->D) && (this->D == 90);
     bool parityabcd = (this->a == this->b) && (this->b == this->c) && (this->c == this->d);
-    if ((this->A + this->B + this->C + this->D == 360) && (this->sides == 4) && parityABCD && parityabcd)
+    if (Quadrangle::check() && parityABCD && parityabcd)
     {
       return true;
     };
@@ -187,7 +187,7 @@ public:
   {
     bool parityABCD = (this->A == this->C) && (this->B == this->D);
     bool parityabcd = (this->a == this->c) && (this->b == this->d);
-    if ((this->A + this->B + this->C + this->D == 360) && (this->sides == 4) && parityABCD && parityabcd)
+    if (Quadrangle::check() && parityABCD && parityabcd)
     {
       return true;
     };
@@ -203,7 +203,7 @@ public:
   {
     bool parityABCD = (this->A == this->C) && (this->B == this->D);
     bool parityabcd = (this->a == this->b) && (this->b == this->c) && (this->c == this->d);
-    if ((this->A + this->B + this->C + this->D == 360) && (this->sides == 4) && parityABCD && parityabcd)
+    if (Quadrangle::check() && parityABCD && parityabcd)
     {
       return true;
     };
